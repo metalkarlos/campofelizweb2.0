@@ -1,0 +1,518 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/template.xhtml">
+
+	<ui:define name="head">
+		<title>Campo Feliz - Cementerio de mascotas de Guayaquil</title>
+
+		<meta name="description"
+			content="BIENVENIDO a Campo Feliz! El primer cementerio de mascotas en la ciudad de Guayaquil. Contamos con los mejores servicios excequiales y la infraestructura necesaria para su mascota." />
+		<meta name="keywords"
+			content="Campo Feliz, Cementerio de Mascotas, Campo Feliz Cementerio de Mascotas, El primer cementerio de mascotas en la ciudad de Guayaquil" />
+
+		<style type="text/css">
+			<c:forEach items="#{noticiasPrincipalesBean.lisPetnoticias}" var="noticia" varStatus="loop">
+			.cr-container input.cr-selector-img-#{loop.index+1}:checked ~ .cr-bgimg,
+			.cr-bgimg div span:nth-child(#{loop.index+1}){
+				background-image: url(#{request.contextPath}#{parametro.servletImagenes}#{noticia.rutafoto});
+			}
+			</c:forEach>
+		</style>
+
+		<script type="text/javascript">
+			function setCorreo() {
+				var correo = $('#form-home\\:txtEmail').val();
+				$('#form-home\\:iddialogmensaje').text(correo);
+			}	
+		</script>
+	</ui:define>
+
+	<ui:define name="body">
+	<h:form id="form-home">
+		<!--start-novedades-->
+		<div class="fishes" id="novedades">
+			<div class="container">
+				<h3 class="tittle">Novedades</h3>
+				<div class="grid">
+					<div class="col-md-6 l-grids">
+						<figure> <img
+							src="#{request.contextPath}/resources/images/g1.jpg" alt="" /> </figure>
+					</div>
+					<div class="col-md-6 l-grids">
+						<figure> <img
+							src="#{request.contextPath}/resources/images/g3.jpg" alt="" /> </figure>
+					</div>
+					<div class="col-md-6 l-grids">
+						<figure> <img
+							src="#{request.contextPath}/resources/images/g4.jpg" alt="" /> </figure>
+					</div>
+					<div class="col-md-6 l-grids">
+						<figure> <img
+							src="#{request.contextPath}/resources/images/g2.jpg" alt="" /> </figure>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<!--end-novedades-->
+		<!--start-about-->
+		<div class="about" id="about">
+			<div class="container">
+				<h2>Misión y Visión</h2>
+				<div class="about-bottom">
+					<p>
+						<h:outputText value="#{quienesSomosBean.petinformacion.mision}"
+							escape="false" />
+					</p>
+					<p>
+						<h:outputText value="#{quienesSomosBean.petinformacion.vision}"
+							escape="false" />
+					</p>
+					<div class="about-btm">
+						<div class="col-md-6 about-left">
+							<img src="#{request.contextPath}/resources/images/g5.jpg" alt="" />
+						</div>
+						<div class="col-md-6 about-right">
+							<img src="#{request.contextPath}/resources/images/g6.jpg" alt="" />
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--end-about-->
+		<!--/services-->
+		<div class="services" id="service">
+			<div class="container">
+				<h3 class="tittle">Nuestros Servicios</h3>
+				<div class="serve-top">
+					<div class="col-md-6 serve-icons">
+						<c:forEach items="#{serviciosPrincipalesBean.lisPetservicio}"
+							var="servicio" begin="0" end="1">
+							<div class="s-sub">
+								<div class="col-md-2 icon">
+									<i class="glyphicon glyphicon-screenshot"></i>
+								</div>
+								<div class="col-md-10 serve-text">
+									<p>
+										#{servicio.nombre}.-
+										<h:outputText value="#{servicio.descripcioncorta}"
+											escape="false" />
+									</p>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</c:forEach>
+					</div>
+					<div class="col-md-6 serve-icons">
+						<c:forEach items="#{serviciosPrincipalesBean.lisPetservicio}"
+							var="servicio" begin="2" end="3">
+							<div class="s-sub">
+								<div class="col-md-2 icon">
+									<i class="glyphicon glyphicon-screenshot"></i>
+								</div>
+								<div class="col-md-10 serve-text">
+									<p>
+										#{servicio.nombre}.-
+										<h:outputText value="#{servicio.descripcioncorta}"
+											escape="false" />
+									</p>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</c:forEach>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+
+		<!--start-latest-->
+		<div class="fishes" id="fishes">
+			<div class="container">
+				<h3 class="tittle">Homenaje</h3>
+				<div class="grid">
+					<c:forEach items="#{mascotasPrincipalBean.lisPetmascotahomenaje}"
+						var="mascota">
+						<div class="col-md-6 l-grids">
+							<figure class="effect-bubba"> <img jsfc="h:graphicImage"
+								value="#{parametro.servletImagenes}#{mascota.rutafoto}?w=600&amp;h=350"
+								alt="" /> <figcaption>
+
+							<h4>#{mascota.nombre}</h4>
+							<p>#{fn:substring(mascota.dedicatoriaNoTags, 0, 100)}...</p>
+							<div class="icon-links">
+								<a href="#"><i class="glyphicon glyphicon-paperclip"></i></a> <a
+									href="#"><i class="glyphicon glyphicon-eye-open"></i></a> <a
+									href="#"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							</div>
+							</figcaption> </figure>
+						</div>
+					</c:forEach>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<!-- team -->
+		<div class="team" id="team">
+			<div class="container">
+				<h3 class="tittle">El Duelo</h3>
+				<div class="team-grids">
+					<c:forEach items="#{guiaGeneralBean.listPetguiaprincipal}"
+						var="guia">
+						<div class="col-md-3 team-grid text-center">
+							<div class="team-img">
+								<img jsfc="h:graphicImage"
+									value="#{parametro.servletImagenes}#{guia.rutafoto}?w=255&amp;h=255"
+									alt="" />
+								<h3>#{guia.titulo}</h3>
+								<p>#{fn:substring(guia.descripcionNoTags, 0, 100)}...</p>
+								<ul>
+									<li><a class="fb" href="#"></a></li>
+									<li><a class="twitt" href="#"></a></li>
+									<li><a class="goog" href="#"></a></li>
+									<li><a class="drib" href="#"></a></li>
+								</ul>
+							</div>
+						</div>
+					</c:forEach>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<!-- team -->
+		<!--gallery-starts-->
+		<div class="gallery" id="gallery">
+			<div class="container">
+				<div class="gallery-top heading">
+					<h3 class="tittle">Galería</h3>
+				</div>
+				<div class="gallery-bottom">
+					<div class="gallery-grids">
+						<div class="col-md-3 gallery-left">
+							<div class="g-1">
+								<a class="example-image-link"
+									href="#{request.contextPath}#{parametro.servletImagenes}/instalaciones/2014-07-03-1.jpg"
+									data-lightbox="example-set" data-title=""><img
+									class="example-image" jsfc="h:graphicImage"
+									value="#{parametro.servletImagenes}/instalaciones/2014-07-03-1-p.jpg"
+									alt="" /></a>
+							</div>
+							<div class="g-2">
+								<a class="example-image-link"
+									href="#{request.contextPath}#{parametro.servletImagenes}/instalaciones/2014-07-03-2.jpg"
+									data-lightbox="example-set" data-title=""><img
+									class="example-image" jsfc="h:graphicImage"
+									value="#{parametro.servletImagenes}/instalaciones/2014-07-03-2-p.jpg"
+									alt="" /></a>
+							</div>
+						</div>
+						<div class="col-md-6 gallery-left">
+							<a class="example-image-link"
+								href="#{request.contextPath}#{parametro.servletImagenes}/instalaciones/2014-07-03-3.jpg"
+								data-lightbox="example-set" data-title=""><img
+								class="example-image" jsfc="h:graphicImage"
+								value="#{parametro.servletImagenes}/instalaciones/2014-07-03-3-p.jpg"
+								alt="" /></a>
+							<div class="g-5">
+								<div class="col-md-6 g-3">
+									<a class="example-image-link"
+										href="#{request.contextPath}#{parametro.servletImagenes}/instalaciones/2014-07-03-6.jpg"
+										data-lightbox="example-set" data-title=""><img
+										class="example-image" jsfc="h:graphicImage"
+										value="#{parametro.servletImagenes}/instalaciones/2014-07-03-6-p.jpg"
+										alt="" /></a>
+								</div>
+								<div class="col-md-6 g-4">
+									<a class="example-image-link"
+										href="#{request.contextPath}#{parametro.servletImagenes}/instalaciones/2014-07-03-7.jpg"
+										data-lightbox="example-set" data-title=""><img
+										class="example-image" jsfc="h:graphicImage"
+										value="#{parametro.servletImagenes}/instalaciones/2014-07-03-7-p.jpg"
+										alt="" /></a>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<a class="example-image-link"
+								href="#{request.contextPath}#{parametro.servletImagenes}/instalaciones/2014-07-03-4.jpg"
+								data-lightbox="example-set" data-title=""><img
+								class="example-image" jsfc="h:graphicImage"
+								value="#{parametro.servletImagenes}/instalaciones/2014-07-03-4-p.jpg"
+								alt="" /></a>
+						</div>
+						<div class="col-md-3 gallery-left">
+							<a class="example-image-link"
+								href="#{request.contextPath}#{parametro.servletImagenes}/instalaciones/2014-07-03-5.jpg"
+								data-lightbox="example-set" data-title=""><img
+								class="example-image" jsfc="h:graphicImage"
+								value="#{parametro.servletImagenes}/instalaciones/2014-07-03-5-p.jpg"
+								alt="" /></a>
+							<div class="g-6">
+								<a class="example-image-link"
+									href="#{request.contextPath}#{parametro.servletImagenes}/instalaciones/2014-08-03-8.jpg"
+									data-lightbox="example-set" data-title=""><img
+									class="example-image" jsfc="h:graphicImage"
+									value="#{parametro.servletImagenes}/instalaciones/2014-08-03-8-p.jpg"
+									alt="" /></a>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--gallery-end-->
+		<!--/news-->
+		<div class="news" id="news">
+			<div class="container">
+				<h3 class="tittle">Eventos</h3>
+				<section class="cr-container"> <input id="select-img-1"
+					name="radio-set-1" type="radio" class="cr-selector-img-1"
+					checked="checked"></input> <label for="select-img-1"
+					class="cr-label-img-1">1</label> <input id="select-img-2"
+					name="radio-set-1" type="radio" class="cr-selector-img-2" /> <label
+					for="select-img-2" class="cr-label-img-2">2</label> <input
+					id="select-img-3" name="radio-set-1" type="radio"
+					class="cr-selector-img-3" /> <label for="select-img-3"
+					class="cr-label-img-3">3</label> <input id="select-img-4"
+					name="radio-set-1" type="radio" class="cr-selector-img-4" /> <label
+					for="select-img-4" class="cr-label-img-4">4</label>
+
+				<div class="clearfix"></div>
+				<div class="cr-bgimg">
+					<div>
+						<span>Slice 1 - Image 1</span> <span>Slice 1 - Image 2</span> <span>Slice
+							1 - Image 3</span> <span>Slice 1 - Image 4</span>
+					</div>
+					<div>
+						<span>Slice 2 - Image 1</span> <span>Slice 2 - Image 2</span> <span>Slice
+							2 - Image 3</span> <span>Slice 2 - Image 4</span>
+					</div>
+					<div>
+						<span>Slice 3 - Image 1</span> <span>Slice 3 - Image 2</span> <span>Slice
+							3 - Image 3</span> <span>Slice 3 - Image 4</span>
+					</div>
+					<div>
+						<span>Slice 4 - Image 1</span> <span>Slice 4 - Image 2</span> <span>Slice
+							4 - Image 3</span> <span>Slice 4 - Image 4</span>
+					</div>
+				</div>
+				<div class="cr-titles">
+					<c:forEach items="#{noticiasPrincipalesBean.lisPetnoticias}"
+						var="noticia">
+						<h3>
+							<span><a href="#">#{noticia.titulo}</a> <br></br>
+								<p>#{fn:substring(noticia.descripcionNoTags, 0, 140)}...</p> <br></br>
+								<div class="bog_post_info infoPost">
+									<p class="datePost">
+										<a jsfc="h:link" class="icon-datePost" href="#" value="#{noticia.fechapublicacion}" >
+												<f:convertDateTime pattern="MMM d, yyyy" locale="es_EC" type="date" />
+											</a>
+									</p>
+									<p class="commentPost">
+										<a class="icon-comment-1" title="Comments - 2" href="#"><i
+											class="glyphicon glyphicon-comment"></i>2</a>
+									</p>
+									<p class="likePost">
+										<i class="glyphicon glyphicon-heart"></i><a class="icon-heart"
+											title="Likes - 4" href="#">4</a>
+									</p>
+									<div class="clearfix"></div>
+								</div></span><span><br></br>#{noticia.titulo}</span>
+						</h3>
+					</c:forEach>
+				</div>
+				</section>
+			</div>
+		</div>
+
+		<!--/testimonials-->
+		<div class="testimonials-section">
+			<div class="container">
+				<h3 class="tittle test">Testimonios</h3>
+				<div class="members">
+					<div class="slide-test">
+						<div id="top" class="callbacks_container">
+							<ul class="rslides callbacks callbacks1" id="slider3">
+								<li id="callbacks1_s0" class="callbacks1_on"
+									style="display: block; float: left; position: relative; opacity: 1; z-index: 2; transition: opacity 500ms ease-in-out;">
+									<div class="text-info">
+										<img src="#{request.contextPath}/resources/images/client.jpg"
+											alt="" />
+										<p>Gracias a Dios que existe un lugar en donde nuestr@s Compañer@s de vida pueden recibir el homenaje póstumo que se merecen por todo lo que aportan a la humanidad.</p>
+										<b>Patricia Angélica Armendáriz</b>
+									</div>
+								</li>
+								<li id="callbacks1_s1" class=""
+									style="display: block; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out;">
+									<div class="text-info">
+										<img src="#{request.contextPath}/resources/images/client2.jpg"
+											alt="" />
+										<p>Excelente, en momentos tan duros demostraron primero que nada lo sensibles y profesionales que son, bendiciones.</p>
+										<b>Monserrat Hernandez Valdiviezo</b>
+									</div>
+								</li>
+								<li id="callbacks1_s2" class=""
+									style="display: block; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out;">
+									<div class="text-info">
+										<img src="#{request.contextPath}/resources/images/client.jpg"
+											alt="" />
+										<p>Excelente servicio que nos brindaron, muy profesionales. Gracias por sus atenciones... Nuestro Will ya esta en casa.</p>
+										<b>Ernesto Cuesta</b>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<!--banner-Slider-->
+						<h:outputScript library="js" name="responsiveslides.min.js" />
+						<script>
+						// You can also use "$(window).load(function() {"
+						$(function () {
+						  // Slideshow 4
+						  $("#slider3").responsiveSlides({
+						auto: true,
+						pager:false,
+						nav: true,
+						speed: 500,
+						namespace: "callbacks",
+						before: function () {
+						  $('.events').append("<li>before event fired.</li>");
+						},
+						after: function () {
+						  $('.events').append("<li>after event fired.</li>");
+						}
+						  });
+
+						});
+						  </script>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--start-contact-->
+		<div class="contact_desc" id="contact">
+			<div class="container">
+				<h3 class="tittle">Contáctanos</h3>
+				<p:messages id="mensajes" showDetail="true" autoUpdate="true"></p:messages>
+				<div class="contact-form">
+					<div id="form-contact" class="left_form">
+						<div>
+							<span><label>NOMBRES</label></span> <span><input
+								name="userName" type="text" class="textbox" jsfc="h:inputText" id="txtNombres" value="#{contactenosBean.nombres}" required="true" requiredMessage="Ingrese sus Nombres" label="Nombres"></input></span>
+						</div>
+						<div>
+							<span><label>E-MAIL</label></span> <span>
+								<input
+								name="userEmail" type="text" class="textbox" jsfc="h:inputText" id="txtEmail" value="#{contactenosBean.correo}" required="true" requiredMessage="Ingresar Email" label="Email"
+								validatorMessage="Formato de Correo Electrónico incorrecto">
+									<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+								</input></span>
+						</div>
+						<div>
+							<span><label>CEDULA</label></span> <span><input
+								name="userPhone" type="text" class="textbox"></input></span>
+						</div>
+					</div>
+					<div class="right_form">
+						<div>
+							<span><label>MENSAJE</label></span> <span><textarea
+									name="userMsg" jsfc="h:inputTextarea" id="txtMensaje" value="#{contactenosBean.mensaje}" required="true" requiredMessage="Ingrese su Mensaje"> </textarea></span>
+						</div>
+						<div class="contact-buttons">
+							<p:captcha id="idcaptcha" label="Captcha" theme="white" language="es" required="true" requiredMessage="Ingrese el código captcha en el recuadro" />
+							<p:commandButton value="Enviar" onclick="PF('vardialogconfirm').show();" immediate="true"></p:commandButton>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="contact-one">
+			<div class="col-md-6 contact-top">
+				<div class="point">
+					<i class="glyphicon glyphicon-map-marker"></i>
+				</div>
+				<h3 class="tittle two">Oficina</h3>
+				<h4>For Any questions, Please feel free to Contact us by mail.</h4>
+				<div class="contact-ad">
+					<p>Address : Newyork Still Road.756 gt globel Place.</p>
+					<p>Phone : Newyork Still Road.756 gt globel Place.</p>
+					<p>
+						E-mail :<a href="mailto:info@example.com">mail@example.com</a>
+					</p>
+				</div>
+			</div>
+			<div class="col-md-6 map">
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d866.6472923997682!2d-79.92230999999995!3d-2.1431379999999978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d72830168ac29%3A0x9466d07e18e5ed9c!2sVeterinaria+Burgos!5e1!3m2!1ses!2sus!4v1400711704528"></iframe>
+				<div class="black">
+					<div class="map-l">
+						<i class="glyphicon glyphicon-map-marker"></i>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="contact-two">
+			<div class="col-md-6 contact-top">
+				<div class="point">
+					<i class="glyphicon glyphicon-map-marker"></i>
+				</div>
+				<h3 class="tittle two">Camposanto</h3>
+				<h4>For Any questions, Please feel free to Contact us by mail.</h4>
+				<div class="contact-ad">
+					<p>Address : Newyork Still Road.756 gt globel Place.</p>
+					<p>Phone : Newyork Still Road.756 gt globel Place.</p>
+					<p>
+						E-mail :<a href="mailto:info@example.com">mail@example.com</a>
+					</p>
+				</div>
+			</div>
+			<div class="col-md-6 map">
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d805.0151998310921!2d-79.96522458132559!3d-2.0362027932313422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d0c2ac13fff07%3A0x9d1b016dd4a497f5!2sCampo+Feliz+Cementerio+de+Mascotas!5e1!3m2!1ses-419!2s!4v1401652722863"
+					width="400" height="300" frameborder="0" style="border: 0"></iframe>
+				<div class="black">
+					<div class="map-l">
+						<i class="glyphicon glyphicon-map-marker"></i>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<!--//contact-->
+		<p:dialog id="iddialogconfirm" header="Confirmar correo"
+			closable="false" widgetVar="vardialogconfirm" modal="true"
+			onShow="setCorreo();" style="min-height: 130px; width: 400px">
+			<h:panelGrid id="idpanelconfirm" columns="1" width="100%">
+				<h:outputText
+					value="Favor confirme su correo para poder enviarle la respuesta" />
+				<h:outputText id="iddialogmensaje" value="#{contactenosBean.correo}" />
+				<h:outputText value="" />
+				<p:panelGrid style="width: 100%; text-align: right;">
+					<p:row>
+						<p:column>
+							<p:commandLink id="idconfirmar" style="color: #EC8F23;"
+								value="Confirmar" action="#{contactenosBean.enviar()}"
+								onclick="PF('vardialogconfirm').hide()" />
+							<h:outputText value="  " />
+							<p:commandLink id="idcancelar" style="color: #EC8F23;"
+								value="Cancelar" immediate="true"
+								onclick="PF('vardialogconfirm').hide()" />
+						</p:column>
+					</p:row>
+				</p:panelGrid>
+			</h:panelGrid>
+		</p:dialog>
+	</h:form>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+	<title>Campo Feliz - Cementerio de mascotas de Guayaquil</title>
+	<link rel="shortcut icon"
+		href="#{request.contextPath}/resources/images/logo_m.ico" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords"
+		content="Acuario Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+	<script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+	<!-- Custom Theme files -->
+	<h:outputStylesheet library="css" name="style.css" />
+	<h:outputStylesheet library="css" name="style3.css" />
+	<h:outputScript library="primefaces" name="jquery/jquery.js" />
+<!-- 	<h:outputScript library="js" name="jquery-1.11.1.min.js" /> -->
+	<h:outputScript library="js" name="move-top.js" />
+	<h:outputScript library="js" name="easing.js" />
+	<!--/script-->
+	<script type="text/javascript">
+				jQuery(document).ready(function($) {
+					$(".scroll").click(function(event){		
+						event.preventDefault();
+						$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+					});
+				});
+	</script>
+	<h:outputScript library="js" name="easyResponsiveTabs.js" />
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#horizontalTab').easyResponsiveTabs({
+				type: 'default', //Types: default, vertical, accordion           
+				width: 'auto', //auto or any width like 600px
+				fit: true   // 100% fit in a container
+			});
+		});
+	   </script>
+	<!--script-->
+	<h:outputScript library="js" name="modernizr.custom.97074.js" />
+	<h:outputScript library="js" name="jquery.chocolat.js" />
+	<h:outputStylesheet library="css" name="chocolat.css" media="screen" />
+	<!--light-box-files-->
+	<script type="text/javascript">
+		$(function() {
+			$('.gallery-grids a').Chocolat();
+		});
+		</script>
+
+	<!-- Configuración del Calendario de la Agenda -->
+	<script type="text/javascript">
+		PrimeFaces.locales['es'] = {
+		    closeText: 'Cerrar',
+		    prevText: 'Anterior',
+		    nextText: 'Siguiente',
+		    monthNames: ['Enero','Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+		    monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
+		    dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
+		    dayNamesShort: ['Dom','Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+		    dayNamesMin: ['D','L','M','M','J','V','S'],
+		    weekHeader: 'Semana',
+		    firstDay: 1,
+		    isRTL: false,
+		    showMonthAfterYear: false,
+		    yearSuffix: '',
+		    timeOnlyTitle: 'Sólo hora',
+		    timeText: 'Tempo',
+		    hourText: 'Hora',
+		    minuteText: 'Minuto',
+		    secondText: 'Segundo',
+		    currentText: 'Fecha actual',
+		    ampm: false,
+		    month: 'Mes',
+		    week: 'Semana',
+		    day: 'Día',
+		    allDayText : 'Todo el día'
+		};
+	</script>
+
+	<!-- Google Analytics (unicamente para campofeliz, reemplazalo con tu propio codigo)-->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-53471676-1', 'auto');
+	  ga('send', 'pageview');
+	
+	</script>
+
+	<ui:insert name="head" />
+</h:head>
+
+<h:body>
+	<ui:debug hotkey="q"
+		rendered="#{facesContext.application.projectStage == 'Development'}" />
+	<!--header-->
+	<div class="header-section" id="home">
+		<div class="header-top">
+			<!--logo-->
+			<div class="logo">
+				<a href="index.html"><h1>Campo Feliz</h1></a>
+			</div>
+			<div class="header-right">
+				<p class="col-md-3 location">
+					<i class="glyphicon glyphicon-map-marker"></i><a
+						href="https://goo.gl/maps/a8BevC7CaaL2" title="Visítanos"
+						target="_blank">Oficina</a>
+				</p>
+				<p class="col-md-3 location">
+					<i class="glyphicon glyphicon-map-marker"></i><a
+						href="https://goo.gl/maps/DNhW9AMhs2v" title="Camposanto"
+						target="_blank">Camposanto</a>
+				</p>
+				<p class="col-md-3 phone">
+					<i class="glyphicon glyphicon-phone"></i> 0993211106
+				</p>
+				<p class="col-md-3 mail">
+					<i class="glyphicon glyphicon-envelope"></i><a
+						href="mailto:campofeliz@campofeliz.com"
+						title="campofeliz@campofeliz.com">Escríbenos</a>
+				</p>
+				<div class="clearfix"></div>
+				<div class="top-nav">
+					<span class="menu"> </span>
+					<ul class="cl-effect-16">
+						<!-- <li><a class="active scroll" href="#home" data-hover="Inicio">Inicio</a></li> -->
+						<li><a class="scroll" href="#about" data-hover="Misión">Misión</a></li>
+						<li><a class="scroll" href="#service" data-hover="Servicios">Servicios</a></li>
+						<li><a class="scroll" href="#fishes" data-hover="Homenaje">Homenaje</a></li>
+						<li><a class="scroll" href="#team" data-hover="El duelo">El
+								duelo</a></li>
+						<!-- <li><a class="scroll" href="#gallery" data-hover="Galería">Galería</a></li> -->
+						<li><a class="scroll" href="#news" data-hover="Eventos">Eventos</a></li>
+						<li><a class="scroll" href="#contact"
+							data-hover="Contáctanos">Contáctanos</a></li>
+					</ul>
+
+				</div>
+			</div>
+			<!--top-nav-->
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+	<!-- script-for-menu -->
+	<script>
+					$(document).ready(function(){
+						$("span.menu").click(function(){
+							$(".top-nav ul").slideToggle(200);
+						});
+					});
+				</script>
+	<div class="clearfix"></div>
+	<ui:insert name="slider">
+		<!--banner-->
+		<div class="banner">
+			<!-- Slider-starts-Here -->
+			<h:outputScript library="js" name="responsiveslides.min.js" />
+			<script>
+				    // You can also use "$(window).load(function() {"
+				    $(function () {
+				      // Slideshow 4
+				      $("#slider4").responsiveSlides({
+				        auto: true,
+				        pager:true,
+				        nav:true,
+				        speed: 500,
+				        timeout: 5000,
+				        /*pause: true,*/
+				        namespace: "callbacks",
+				        before: function (i) {
+// 				        	if(i == 2){
+// 				        		$('video')[0].load();
+// 				        	}
+				          $('.events').append("<li>before event fired.</li>");
+				        },
+				        after: function (i) {
+// 				        	if(i == 2){
+// 				        	  $('video')[0].play();
+// 					        }else{
+// 				        		$('video')[0].pause();
+// 				        	}
+				          $('.events').append("<li>after event fired.</li>");
+				        }
+				      });
+				
+				    });
+				  </script>
+			<!--//End-slider-script -->
+			<div class="callbacks_container">
+				<ul class="rslides" id="slider4">
+					<li>
+						<div class="banner-img">
+							<img src="#{request.contextPath}/resources/images/1.jpg"
+								class="img-responsive" alt="" />
+						</div>
+
+					</li>
+					<li>
+						<div class="banner-img">
+							<img src="#{request.contextPath}/resources/images/3.jpg"
+								class="img-responsive" alt="" />
+						</div>
+
+					</li>
+<!-- 					<li> -->
+<!-- 						<div class="banner-img"> -->
+<!-- 							<video width="100%" loop="loop" preload="auto"> -->
+<!-- 							  <source src="#{request.contextPath}/resources/videos/video.mp4" type="video/mp4" /> -->
+<!-- 							  Your browser does not support the video tag. -->
+<!-- 							</video> -->
+<!-- 							<span style="font-family: PoiretOne-Regular;font-style: italic;display: block; position: absolute; color: white; font-size: 4.8em; margin-top: -750px;width: 96%;left: 15px;text-align: center;opacity: 0.6;padding: 10px 0px;background: rgba(236, 114, 150, 0.73) none repeat scroll 0% 0%;font-weight: bold;">Te mereces un lugar digno...</span> -->
+<!-- 						</div> -->
+
+<!-- 					</li> -->
+				</ul>
+			</div>
+
+		</div>
+		<div class="clearfix"></div>
+	</ui:insert>
+	<ui:insert name="body">
+		
+	</ui:insert>
+	<div class="copy">
+		<p>
+			&copy; 2015 Acuario. All Rights Reserved | Design by <a
+				href="http://w3layouts.com/">W3layouts</a>
+		</p>
+	</div>
+	<!--start-smooth-scrolling-->
+	<script type="text/javascript">
+								jQuery(document).ready(function($) {
+									$(".scroll").click(function(event){		
+										event.preventDefault();
+										$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+									});
+								});
+								</script>
+	<!--start-smoth-scrolling-->
+	<script type="text/javascript">
+									$(document).ready(function() {
+										/*
+										var defaults = {
+								  			containerID: 'toTop', // fading element id
+											containerHoverID: 'toTopHover', // fading element hover id
+											scrollSpeed: 1200,
+											easingType: 'linear' 
+								 		};
+										*/
+										
+										$().UItoTop({ easingType: 'easeOutQuart' });
+										
+									});
+								</script>
+	<a href="#home" id="toTop" class="scroll" style="display: block;">
+		<span id="toTopHover" style="opacity: 1;"> </span>
+	</a>
+
+</h:body>
+</html>

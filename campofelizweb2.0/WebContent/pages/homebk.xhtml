@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	template="/WEB-INF/templates/default.xhtml">
+
+	<ui:define name="head">
+
+		<title>Campo Feliz - Cementerio de mascotas de Guayaquil</title>
+
+		<meta name="description"
+			content="BIENVENIDO a Campo Feliz! El primer cementerio de mascotas en la ciudad de Guayaquil. Contamos con los mejores servicios excequiales y la infraestructura necesaria para su mascota." />
+		<meta name="keywords" content="Campo Feliz Cementerio de Mascotas" />
+
+		<style type="text/css">
+			.gridVideos {
+				padding: 10px 0;
+			}
+			.botones-redes-sociales-content {
+				text-align: left;
+			}
+			.inner-content {
+				padding: 15px 15px 0px;
+			}
+			h2 {
+				padding: 0px;
+				line-height: 40px;
+				font-size: 20px;
+			}
+			h2 span {
+		    text-transform: none;
+			}
+		</style>
+	</ui:define>
+
+	<ui:define name="content_page">
+		<div class="content-page">
+			<h:form id="form-contentpage">
+				<p:growl id="mensajes" showDetail="false" />
+				<!-- Redes Sociales -->
+				<div class="botones-redes-sociales-content">
+					<!-- Facebook boton like-->
+					<div style="display: inline-block; padding: 0 25px 0 0;">
+						<div class="fb-like"
+							data-href="https://www.facebook.com/pages/Campo-Feliz-Cementerio-de-Mascotas/257959247667793"
+							data-layout="button_count" data-action="like"
+							data-show-faces="false" data-share="false"></div>
+					</div>
+
+					<!-- Twitter boton seguir -->
+					<div style="display: inline-block;">
+						<a href="https://twitter.com/share" class="twitter-share-button"
+							data-lang="es">Twittear</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+					</div>
+
+					<!-- Google +1 boton -->
+					<div style="display: inline-block;">
+						<!-- Inserta esta etiqueta donde quieras que aparezca Botón +1. -->
+						<div class="g-plusone" style="vertical-align: middle;"
+							data-size="medium"></div>
+
+						<!-- Inserta esta etiqueta después de la última etiqueta de Botón +1. -->
+						<script type="text/javascript">
+						  window.___gcfg = {lang: 'es'};
+						
+						  (function() {
+						    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+						    po.src = 'https://apis.google.com/js/platform.js';
+						    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+						  })();
+						</script>
+					</div>
+				</div>
+
+				<div class="inner-content">
+					<center>
+						<h2>
+							<span class="str-3" style="font-size: 40px">Campo Feliz</span> 
+						</h2>
+						<h2>
+							El primer Cementerio de Mascotas en la ciudad de Guayaquil!
+						</h2>
+					</center>
+				</div>
+					
+				<h:link value="[Nuevo Video]" outcome="/admin/home-admin" styleClass="link2" style="float: right;margin: 0 20px 0 0;" rendered="#{usuarioBean.autenticado}" >
+					<f:param name="idhome" value="0"></f:param>
+				</h:link>
+				<p:separator style="clear:both;border: none;" rendered="#{usuarioBean.autenticado}"></p:separator>
+				
+				<p:dataGrid styleClass="gridVideos" id="gridVideos" value="#{homeBean.lisPethome}" var="pethome" columns="1" rows="2" paginator="true" effect="true" 
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				emptyMessage="No se encontraron registros" paginatorPosition="bottom">
+				<p:column>
+					<h:link value="[Editar]" styleClass="link2" outcome="/admin/home-admin" rendered="#{usuarioBean.autenticado}" >
+						<f:param name="idhome" value="#{pethome.idhome}"></f:param>
+					</h:link>
+					<div class="inner-content">
+						<p style="text-align: justify;">
+							<h:outputText value="#{pethome.encabezado}" escape="false" />
+						</p>
+						<br />
+						<center>
+							<h:outputText value="#{pethome.urlvideo}" escape="false" />
+						</center>
+					</div>
+				</p:column>
+				</p:dataGrid>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>

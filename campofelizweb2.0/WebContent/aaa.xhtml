@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<h:form id="form-home">
+
+<textarea name="userMsg" jsfc="h:inputTextarea" id="txtMensaje" value="#{contactenosBean.mensaje}" required="true" requiredMessage="Ingrese su Mensaje"> </textarea>
+									
+		<input type="submit" value="Submit " onclick="PF('vardialogconfirm').show();"></input>
+		<h:link value="Enviar" style="color: #EC8F23;" onclick="PF('vardialogconfirm').show();" />
+		<p:commandButton value="Enviar" onclick="PF('vardialogconfirm').show();"></p:commandButton>
+		<span onclick="PF('vardialogconfirm').show();">click</span>
+
+		<p:dialog id="iddialogconfirm" header="Confirmar correo"
+			closable="false" widgetVar="vardialogconfirm" modal="true"
+			style="min-height: 130px; width: 400px">
+			<h:panelGrid id="idpanelconfirm" columns="1" width="100%">
+				<h:outputText
+					value="Favor confirme su correo para poder enviarle la respuesta" />
+				<h:outputText id="iddialogmensaje" value="#{contactenosBean.correo}" />
+				<h:outputText value="" />
+				<p:panelGrid style="width: 100%; text-align: right;">
+					<p:row>
+						<p:column>
+							<p:commandLink id="idconfirmar" style="color: #EC8F23;"
+								value="Confirmar" action="#{contactenosBean.enviar()}"
+								onclick="vardialogconfirm.hide()"
+								oncomplete="Recaptcha.reload();" />
+							<h:outputText value="  " />
+							<p:commandLink id="idcancelar" style="color: #EC8F23;"
+								value="Cancelar" immediate="true"
+								onclick="vardialogconfirm.hide()"
+								oncomplete="Recaptcha.reload();" />
+						</p:column>
+					</p:row>
+				</p:panelGrid>
+			</h:panelGrid>
+		</p:dialog>
+</h:form>
+</body> 
+</html>
