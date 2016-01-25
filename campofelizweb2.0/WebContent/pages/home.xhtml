@@ -401,7 +401,7 @@
 		<div class="contact_desc" id="contact">
 			<div class="container">
 				<h3 class="tittle">Contáctanos</h3>
-				<p:messages id="mensajes" showDetail="true" autoUpdate="true"></p:messages>
+				<p:messages id="msgContactenos" ></p:messages>
 				<div class="contact-form">
 					<div id="left_form" class="left_form">
 						<div>
@@ -428,7 +428,7 @@
 						</div>
 						<div class="contact-buttons">
 							<p:captcha id="idcaptcha" data-size="compact" label="Captcha" theme="white" language="es" required="true" requiredMessage="Ingrese el código captcha en el recuadro" />
-							<p:commandButton value="Enviar" onclick="PF('vardialogconfirm').show();" immediate="true"></p:commandButton>
+							<p:commandButton value="Enviar" onclick="PF('vardialogconfirm').show();" immediate="true" ></p:commandButton>
 						</div>
 					</div>
 					<div class="clearfix"></div>
@@ -502,8 +502,9 @@
 					<p:row>
 						<p:column>
 							<p:commandLink id="idconfirmar" style="color: #EC8F23;"
-								value="Confirmar" action="#{contactenosBean.enviar()}"
-								onclick="PF('vardialogconfirm').hide()" />
+								value="Confirmar" action="#{contactenosBean.enviar()}" 
+								update="msgContactenos"
+								onclick="PF('vardialogconfirm').hide()"  />
 							<h:outputText value="  " />
 							<p:commandLink id="idcancelar" style="color: #EC8F23;"
 								value="Cancelar" immediate="true"
