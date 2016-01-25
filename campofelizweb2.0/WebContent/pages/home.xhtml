@@ -345,8 +345,8 @@
 									<div class="text-info">
 										<img src="#{request.contextPath}/resources/images/client.jpg"
 											alt="" />
-										<p>Gracias a Dios que existe un lugar en donde nuestr@s Compañer@s de vida pueden recibir el homenaje póstumo que se merecen por todo lo que aportan a la humanidad.</p>
-										<b>Patricia Angélica Armendáriz</b>
+										<p>Son lo mejor que pudo haber existido para estos angelitos de cuatro patas.</p>
+										<b>Karen Portugal Soledispa</b>
 									</div>
 								</li>
 								<li id="callbacks1_s1" class=""
@@ -403,7 +403,7 @@
 				<h3 class="tittle">Contáctanos</h3>
 				<p:messages id="mensajes" showDetail="true" autoUpdate="true"></p:messages>
 				<div class="contact-form">
-					<div id="form-contact" class="left_form">
+					<div id="left_form" class="left_form">
 						<div>
 							<span><label>NOMBRES</label></span> <span><input
 								name="userName" type="text" class="textbox" jsfc="h:inputText" id="txtNombres" value="#{contactenosBean.nombres}" required="true" requiredMessage="Ingrese sus Nombres" label="Nombres"></input></span>
@@ -421,13 +421,13 @@
 								name="userPhone" type="text" class="textbox"></input></span>
 						</div>
 					</div>
-					<div class="right_form">
+					<div id="right_form" class="right_form">
 						<div>
 							<span><label>MENSAJE</label></span> <span><textarea
 									name="userMsg" jsfc="h:inputTextarea" id="txtMensaje" value="#{contactenosBean.mensaje}" required="true" requiredMessage="Ingrese su Mensaje"> </textarea></span>
 						</div>
 						<div class="contact-buttons">
-							<p:captcha id="idcaptcha" label="Captcha" theme="white" language="es" required="true" requiredMessage="Ingrese el código captcha en el recuadro" />
+							<p:captcha id="idcaptcha" data-size="compact" label="Captcha" theme="white" language="es" required="true" requiredMessage="Ingrese el código captcha en el recuadro" />
 							<p:commandButton value="Enviar" onclick="PF('vardialogconfirm').show();" immediate="true"></p:commandButton>
 						</div>
 					</div>
