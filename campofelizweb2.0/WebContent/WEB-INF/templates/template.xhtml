@@ -99,8 +99,7 @@
 </h:head>
 
 <h:body>
-	<ui:debug hotkey="q"
-		rendered="#{facesContext.application.projectStage == 'Development'}" />
+	<ui:debug hotkey="q" rendered="#{facesContext.application.projectStage == 'Development'}" />
 	<!--header-->
 	<div class="header-section" id="home">
 		<div class="header-top">
@@ -135,12 +134,11 @@
 						<li><a class="scroll" href="#about" data-hover="Misión">Misión</a></li>
 						<li><a class="scroll" href="#service" data-hover="Servicios">Servicios</a></li>
 						<li><a class="scroll" href="#fishes" data-hover="Homenaje">Homenaje</a></li>
-						<li><a class="scroll" href="#team" data-hover="El duelo">El
-								duelo</a></li>
+						<li><a class="scroll" href="#team" data-hover="El duelo">El duelo</a></li>
 						<!-- <li><a class="scroll" href="#gallery" data-hover="Galería">Galería</a></li> -->
 						<li><a class="scroll" href="#news" data-hover="Eventos">Eventos</a></li>
-						<li><a class="scroll" href="#contact"
-							data-hover="Contáctanos">Contáctanos</a></li>
+						<li><a class="scroll" href="#contact" data-hover="Contáctanos">Contáctanos</a></li>
+						<li><h:form><a class="scroll" data-hover="Salir" jsfc="h:commandLink" value="Salir" action="#{usuarioBean.logout}" rendered="#{usuarioBean.autenticado}" /></h:form></li>
 					</ul>
 
 				</div>
@@ -159,6 +157,7 @@
 					});
 				</script>
 	<div class="clearfix"></div>
+	
 	<ui:insert name="slider">
 		<!--banner-->
 		<div class="banner">
@@ -227,9 +226,11 @@
 		</div>
 		<div class="clearfix"></div>
 	</ui:insert>
-	<ui:insert name="body">
+	
+	<ui:insert name="content_page">
 		
 	</ui:insert>
+	
 	<div class="copy">
 		<p>
 			&copy; 2015 Acuario. All Rights Reserved | Design by <a

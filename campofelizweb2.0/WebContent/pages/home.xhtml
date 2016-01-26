@@ -33,7 +33,7 @@
 		</script>
 	</ui:define>
 
-	<ui:define name="body">
+	<ui:define name="content_page">
 	<h:form id="form-home">
 		<!--start-novedades-->
 		<div class="fishes" id="novedades">
@@ -64,9 +64,6 @@
 		<!--start-about-->
 		<div class="about" id="about">
 			<div class="container">
-					<h:link value="[Editar]" styleClass="link2" outcome="/admin/quienessomos-admin" rendered="#{usuarioBean.autenticado}">
-						<f:param name="idinformacion" value="#{quienesSomosBean.petinformacion.idinformacion}"></f:param>
-					</h:link>
 				<h2>Misión y Visión</h2>
 					
 					<div class="about-bottom">
@@ -101,13 +98,19 @@
 							var="servicio" begin="0" end="1">
 							<div class="s-sub">
 								<div class="col-md-2 icon">
-									<i class="glyphicon glyphicon-screenshot"></i>
+									<h:link outcome="/pages/servicio" title="Leer Más" >
+										<i class="glyphicon glyphicon-screenshot"></i>
+										<f:param name="idservicio" value="#{servicio.idservicio}"></f:param>
+										<f:param name="idempresa" value="#{servicio.cotempresa.idempresa}"></f:param>
+									</h:link>
 								</div>
 								<div class="col-md-10 serve-text">
 									<p>
-										#{servicio.nombre}.-
-										<h:outputText value="#{servicio.descripcioncorta}"
-											escape="false" />
+										<h:link outcome="/pages/servicio" title="Leer Más" >
+											#{servicio.nombre}.- <h:outputText value="#{servicio.descripcioncorta}" escape="false" />
+											<f:param name="idservicio" value="#{servicio.idservicio}"></f:param>
+											<f:param name="idempresa" value="#{servicio.cotempresa.idempresa}"></f:param>
+										</h:link>
 									</p>
 								</div>
 								<div class="clearfix"></div>
@@ -119,13 +122,19 @@
 							var="servicio" begin="2" end="3">
 							<div class="s-sub">
 								<div class="col-md-2 icon">
-									<i class="glyphicon glyphicon-screenshot"></i>
+									<h:link outcome="/pages/servicio" title="Leer Más" >
+										<i class="glyphicon glyphicon-screenshot"></i>
+										<f:param name="idservicio" value="#{servicio.idservicio}"></f:param>
+										<f:param name="idempresa" value="#{servicio.cotempresa.idempresa}"></f:param>
+									</h:link>
 								</div>
 								<div class="col-md-10 serve-text">
 									<p>
-										#{servicio.nombre}.-
-										<h:outputText value="#{servicio.descripcioncorta}"
-											escape="false" />
+										<h:link outcome="/pages/servicio" title="Leer Más" >
+											#{servicio.nombre}.- <h:outputText value="#{servicio.descripcioncorta}" escape="false" />
+											<f:param name="idservicio" value="#{servicio.idservicio}"></f:param>
+											<f:param name="idempresa" value="#{servicio.cotempresa.idempresa}"></f:param>
+										</h:link>
 									</p>
 								</div>
 								<div class="clearfix"></div>
