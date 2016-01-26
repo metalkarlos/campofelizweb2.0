@@ -64,8 +64,12 @@
 		<!--start-about-->
 		<div class="about" id="about">
 			<div class="container">
+					<h:link value="[Editar]" styleClass="link2" outcome="/admin/quienessomos-admin" rendered="#{usuarioBean.autenticado}">
+						<f:param name="idinformacion" value="#{quienesSomosBean.petinformacion.idinformacion}"></f:param>
+					</h:link>
 				<h2>Misión y Visión</h2>
-				<div class="about-bottom">
+					
+					<div class="about-bottom">
 					<p>
 						<h:outputText value="#{quienesSomosBean.petinformacion.mision}"
 							escape="false" />
