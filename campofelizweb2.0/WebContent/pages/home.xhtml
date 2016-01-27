@@ -154,16 +154,20 @@
 					<c:forEach items="#{mascotasPrincipalBean.lisPetmascotahomenaje}"
 						var="mascota">
 						<div class="col-md-6 l-grids">
-							<figure class="effect-bubba"> <img jsfc="h:graphicImage"
-								value="#{parametro.servletImagenes}#{mascota.rutafoto}?w=600&amp;h=350"
-								alt="" /> <figcaption>
+							<figure class="effect-bubba"> 
+								<img jsfc="h:graphicImage" value="#{parametro.servletImagenes}#{mascota.rutafoto}?w=600&amp;h=350" alt="" />
+							<figcaption>
 
 							<h4>#{mascota.nombre}</h4>
 							<p>#{fn:substring(mascota.dedicatoriaNoTags, 0, 100)}...</p>
 							<div class="icon-links">
-								<a href="#"><i class="glyphicon glyphicon-paperclip"></i></a> <a
-									href="#"><i class="glyphicon glyphicon-eye-open"></i></a> <a
-									href="#"><i class="glyphicon glyphicon-heart-empty"></i></a>
+								<a jsfc="h:link" outcome="/pages/mascotahomenaje" title="Leer Más">
+									<i class="glyphicon glyphicon-info-sign"></i>
+									<f:param name="idmascota" value="#{mascota.idmascota}"></f:param>
+								</a>
+								<a jsfc="h:link" outcome="/pages/mascotashomenaje" title="Buscar">
+									<i class="glyphicon glyphicon-search"></i>
+								</a>
 							</div>
 							</figcaption> </figure>
 						</div>
@@ -187,10 +191,14 @@
 								<h3>#{guia.titulo}</h3>
 								<p>#{fn:substring(guia.descripcionNoTags, 0, 100)}...</p>
 								<ul>
-									<li><a class="fb" href="#"></a></li>
-									<li><a class="twitt" href="#"></a></li>
-									<li><a class="goog" href="#"></a></li>
-									<li><a class="drib" href="#"></a></li>
+									<li>
+										<a class="glyphicon glyphicon-info-sign" jsfc="h:link" outcome="guia" title="Leer Más">
+											<f:param name="idguia" value="#{guia.idguia}"></f:param>
+										</a>
+									</li>
+									<li>
+										<a class="glyphicon glyphicon-search" jsfc="h:link" outcome="guiageneral" title="Buscar"></a>
+									</li>
 								</ul>
 							</div>
 						</div>
