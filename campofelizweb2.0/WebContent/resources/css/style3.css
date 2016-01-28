@@ -210,7 +210,7 @@ background: rgb(64, 67, 89);
     font-size: 1em!important;
 }
 .cr-titles h3 span{
-	z-index: 10000;
+	/*z-index: 10000;*/
 	position: absolute;
 	width:96%;
 	left: 15px;
@@ -329,7 +329,7 @@ background: rgb(64, 67, 89);
 		z-index: 1;
 	}
 	.cr-titles h3 span {
-    z-index: 10000;
+    /*z-index: 10000;*/
     position: absolute;
     width: 92%;
     left: 15px;
@@ -358,7 +358,7 @@ background: rgb(64, 67, 89);
 		z-index: 1;
 	}
 	.cr-titles h3 span {
-        z-index: 10000;
+        /*z-index: 10000;*/
     position: absolute;
     width: 100%;
     left: 0px;
@@ -384,7 +384,7 @@ background: rgb(64, 67, 89);
 		z-index: 1;
 	}
 	.cr-titles h3 span {
-    z-index: 10000;
+   /* z-index: 10000;*/
     position: absolute;
     width: 92%;
     left: 15px;
@@ -410,7 +410,7 @@ background: rgb(64, 67, 89);
 		z-index: 1;
 	}
 	.cr-titles h3 span {
-    z-index: 10000;
+    /*z-index: 10000;*/
     position: absolute;
     width: 92%;
     left: 15px;

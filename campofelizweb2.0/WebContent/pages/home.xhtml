@@ -293,9 +293,9 @@
 		<div class="news" id="news">
 			<div class="container">
 				<h3 class="tittle">Eventos</h3>
-				<section class="cr-container"> <input id="select-img-1"
+				<section class="cr-container"> <a href="#" title="esteHP"><input id="select-img-1"
 					name="radio-set-1" type="radio" class="cr-selector-img-1"
-					checked="checked"></input> <label for="select-img-1"
+					checked="checked"></input></a> <label for="select-img-1"
 					class="cr-label-img-1">1</label> <input id="select-img-2"
 					name="radio-set-1" type="radio" class="cr-selector-img-2" /> <label
 					for="select-img-2" class="cr-label-img-2">2</label> <input
@@ -328,17 +328,21 @@
 					<c:forEach items="#{noticiasPrincipalesBean.lisPetnoticias}"
 						var="noticia">
 						<h3>
-							<span><a href="#">#{noticia.titulo}</a> <br></br>
-								<p>#{fn:substring(noticia.descripcionNoTags, 0, 140)}...</p> <br></br>
+							<span>
+								<a jsfc="h:link" outcome="noticia" value="#{noticia.titulo}">
+									<f:param name="idnoticia" value="#{noticia.idnoticia}"></f:param>
+								</a> <br></br>
+								<p>#{noticia.idnoticia}#{fn:substring(noticia.descripcionNoTags, 0, 140)}...</p> <br></br>
 								<div class="bog_post_info infoPost">
 									<p class="datePost">
-										<a jsfc="h:link" class="icon-datePost" href="#" value="#{noticia.fechapublicacion}" >
-												<f:convertDateTime pattern="MMM d, yyyy" locale="es_EC" type="date" />
-											</a>
+										<a jsfc="h:link" class="icon-datePost" outcome="noticia" value="#{noticia.fechapublicacion}" 	>
+											<f:convertDateTime pattern="MMM d, yyyy" locale="es_EC" type="date" />
+											<f:param name="idnoticia" value="#{noticia.idnoticia}"></f:param>
+										</a>
 									</p>
 									<p class="commentPost">
-										<a class="icon-comment-1" title="Comments - 2" href="#"><i
-											class="glyphicon glyphicon-comment"></i>2</a>
+										<a class="icon-comment-1" title="Comments - 2" jsfc="h:link" outcome="noticia" ><i
+											class="glyphicon glyphicon-comment"></i>2<f:param name="idnoticia" value="#{noticia.idnoticia}"></f:param></a>
 									</p>
 									<p class="likePost">
 										<i class="glyphicon glyphicon-heart"></i><a class="icon-heart"

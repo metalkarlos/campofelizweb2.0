@@ -11,10 +11,10 @@
 	
 	<ui:define name="head">
 			
-		<title>Cómo decir Adiós - #{guiaBean.petguia.titulo}</title>
+		<title>Noticia - #{noticiaBean.petnoticia.titulo}</title>
 		
-		<meta name="description" content="#{fn:substring(guiaBean.petguia.descripcionNoTags, 0, 200)}" />
-		<meta name="keywords" content="#{guiaBean.petguia.tag}" />
+		<meta name="description" content="#{fn:substring(noticiaBean.petnoticia.descripcionNoTags, 0, 200)}" />
+		<meta name="keywords" content="#{noticiaBean.petnoticia.tag}" />
 		
 		<style type="text/css">
 			.inner-content {
@@ -27,37 +27,38 @@
 		<div class="content-page">
 		<h:form id="form-contentpage">
 			<p:growl id="mensajes" showDetail="false" />
+			
 			<div class="inner-content">
 				<div style="text-align: right;">
-					<h:link value="[Editar]" styleClass="link2" outcome="/admin/guia-admin" rendered="#{usuarioBean.autenticado}" >
-						<f:param name="idguia" value="#{guiaBean.idguia}"></f:param>
+					<h:link value="[Editar]" styleClass="link2" outcome="/admin/noticia-admin" rendered="#{usuarioBean.autenticado}" >
+						<f:param name="idnoticia" value="#{noticiaBean.idnoticia}"></f:param>
 					</h:link>
 				</div>
 				<center>
-				<p:galleria id="idgalleria" value="#{guiaBean.lispetfotoguia}" var="item" panelWidth="400" panelHeight="320">
-			        <p:graphicImage id="idfotos" value="#{parametro.servletImagenes}#{item.ruta}?w=70" style="max-height: 70px;" />
+				<p:galleria id="idgalleria" value="#{noticiaBean.lisPetfotonoticia}" var="item" panelWidth="500" panelHeight="320">
+			        <p:graphicImage value="#{parametro.servletImagenes}#{item.ruta}?w=60" style="max-height: 58px" />
 			        <p:galleriaContent>  
-			            <h:outputLink styleClass="grupo1" value="#{request.contextPath}#{parametro.servletImagenes}#{item.ruta}"	title="#{item.descripcion}">
-			        	 <p:graphicImage id="idfoto" value="#{parametro.servletImagenes}#{item.ruta}?w=350" style="max-width:350px; max-height: 300px; padding-top: 10px" />
+				        <h:outputLink styleClass="grupo1" value="#{request.contextPath}#{parametro.servletImagenes}#{item.ruta}"	title="#{item.descripcion}">
+			            	<p:graphicImage value="#{parametro.servletImagenes}#{item.ruta}?w=400" style="max-width: 480px; height: 300px; padding-top: 10px" />
 				        </h:outputLink>
 					</p:galleriaContent>
 				</p:galleria>
 				</center>
 				
 				<div class="titulo2">
-					<h:outputText id="fechaPublicacion" value="#{guiaBean.petguia.fechapublicacion}">
+					<h:outputText id="fechaNoticia" value="#{noticiaBean.petnoticia.fecharegistro}">
 						<f:convertDateTime pattern="dd/MM/yyyy" />
 					</h:outputText>
 				</div>
 				
-				
 				<div class="cuerpo">
 					<div class="titulo2">
-						<h:outputText value="#{guiaBean.petguia.titulo}" escape="true" />
+						#{noticiaBean.petnoticia.titulo}
 					</div>
 					<div>
-						<h:outputText value="#{guiaBean.petguia.descripcion}" escape="false" />
-						
+						<p class="parrafo">
+							<h:outputText value="#{noticiaBean.petnoticia.descripcion}" escape="false" />
+						</p>
 					</div>
 				</div>
 				
