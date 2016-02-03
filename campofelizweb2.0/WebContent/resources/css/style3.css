@@ -210,7 +210,7 @@ background: rgb(64, 67, 89);
     font-size: 1em!important;
 }
 .cr-titles h3 span{
-	/*z-index: 10000;*/
+	z-index: 10000;
 	position: absolute;
 	width:96%;
 	left: 15px;
@@ -271,6 +271,7 @@ background: rgb(64, 67, 89);
 .cr-container input.cr-selector-img-4:checked ~ .cr-titles h3:nth-child(4) span:nth-child(1){
 	opacity: 1;
 	    top: 14%;
+	    z-index: 10001;
 }
 .cr-container input.cr-selector-img-1:checked ~ .cr-titles h3:nth-child(1) span:nth-child(2),
 .cr-container input.cr-selector-img-2:checked ~ .cr-titles h3:nth-child(2) span:nth-child(2),
@@ -329,7 +330,7 @@ background: rgb(64, 67, 89);
 		z-index: 1;
 	}
 	.cr-titles h3 span {
-    /*z-index: 10000;*/
+    z-index: 10000;
     position: absolute;
     width: 92%;
     left: 15px;
@@ -358,7 +359,7 @@ background: rgb(64, 67, 89);
 		z-index: 1;
 	}
 	.cr-titles h3 span {
-        /*z-index: 10000;*/
+        z-index: 10000;
     position: absolute;
     width: 100%;
     left: 0px;
@@ -384,7 +385,7 @@ background: rgb(64, 67, 89);
 		z-index: 1;
 	}
 	.cr-titles h3 span {
-   /* z-index: 10000;*/
+    z-index: 10000;
     position: absolute;
     width: 92%;
     left: 15px;
@@ -410,7 +411,7 @@ background: rgb(64, 67, 89);
 		z-index: 1;
 	}
 	.cr-titles h3 span {
-    /*z-index: 10000;*/
+    z-index: 10000;
     position: absolute;
     width: 92%;
     left: 15px;
