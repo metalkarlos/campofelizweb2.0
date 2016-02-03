@@ -247,7 +247,7 @@ background: rgb(64, 67, 89);
     margin-top: 1em;
     font-family: 'PoiretOne-Regular';
 }
-.cr-titles h3 span:nth-child(2){
+/* .cr-titles h3 span:nth-child(2){
 	    margin-top: -188px;
     letter-spacing: 0px;
        background:rgba(236, 114, 150, 0.73);
@@ -260,7 +260,7 @@ background: rgb(64, 67, 89);
     -ms-transition: opacity 0.8s ease-in-out;
     transition: opacity 0.8s ease-in-out;
 	    color: #fff;
-}
+} */
 .cr-titles h5{
     font-size: 14px;
 	    color: #fff;

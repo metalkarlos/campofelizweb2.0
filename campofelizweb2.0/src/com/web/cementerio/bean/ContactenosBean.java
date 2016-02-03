@@ -30,6 +30,8 @@ public class ContactenosBean implements Serializable {
 	private String apellidos;
 	private String correo;
 	private String mensaje;
+	private String cedula;
+	private String telefono;
 	
 	public  ContactenosBean(){
 	  inicializar();
@@ -43,6 +45,8 @@ public class ContactenosBean implements Serializable {
 		apellidos = null;
 		correo = null;
 		mensaje = null;
+		cedula = null;
+		telefono = null;
 	}
 	public void consultar(){
 		try {
@@ -204,6 +208,22 @@ public class ContactenosBean implements Serializable {
 
 	public void setMensaje(String mensaje) {
 		this.mensaje = mensaje;
+	}
+
+	public String getCedula() {
+		return cedula;
+	}
+
+	public void setCedula(String cedula) {
+		this.cedula = cedula;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
 
 }

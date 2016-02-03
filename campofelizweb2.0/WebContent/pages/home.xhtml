@@ -341,15 +341,11 @@
 										</a>
 									</p>
 									<p class="commentPost">
-										<a class="icon-comment-1" title="Comments - 2" jsfc="h:link" outcome="noticia" ><i
-											class="glyphicon glyphicon-comment"></i>2<f:param name="idnoticia" value="#{noticia.idnoticia}"></f:param></a>
 									</p>
 									<p class="likePost">
-										<i class="glyphicon glyphicon-heart"></i><a class="icon-heart"
-											title="Likes - 4" href="#">4</a>
 									</p>
 									<div class="clearfix"></div>
-								</div></span><span><br></br>#{noticia.titulo}</span>
+								</div></span><span><br></br></span>
 						</h3>
 					</c:forEach>
 				</div>
@@ -443,7 +439,11 @@
 						</div>
 						<div>
 							<span><label>CEDULA</label></span> <span><input
-								name="userPhone" type="text" class="textbox"></input></span>
+								name="userId" type="text" class="textbox" jsfc="h:inputText" id="txtCedula" value="#{contactenosBean.cedula}" required="true" requiredMessage="Ingresar Cédula" label="Cédula"></input></span>
+						</div>
+						<div>
+							<span><label>TELEFONO</label></span> <span><input
+								name="userPhone" type="text" class="textbox" jsfc="h:inputText" id="txtTelefono" value="#{contactenosBean.telefono}" required="true" requiredMessage="Ingrese Teléfono" label="Teléfono"></input></span>
 						</div>
 					</div>
 					<div id="right_form" class="right_form">
