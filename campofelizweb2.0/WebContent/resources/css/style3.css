@@ -123,10 +123,10 @@ background: rgb(64, 67, 89);
 	background-position: 0px 0px;
 }
 .cr-bgimg div:nth-child(2) span{
-	background-position: -150px 0px;
+	background-position: -150px 0px;/*-105 0*/
 }
 .cr-bgimg div:nth-child(3) span{
-	background-position: -300px 0px;
+	background-position: -300px 0px;/*-210 0*/
 }
 .cr-bgimg div:nth-child(4) span{
 	background-position: -450px 0px;
@@ -284,7 +284,8 @@ background: rgb(64, 67, 89);
 	.cr-container input{
 		display: inline;
 		width: 24%;
-		margin-top: 350px;
+		/*margin-top: 350px;*/
+		margin-top: 320px;
 		z-index: 1000;
 		position: relative;
 		    cursor: pointer;
@@ -343,16 +344,21 @@ background: rgb(64, 67, 89);
 }
 @media screen and (max-width:667px) {
 	.cr-container {
-		width:440px;
-		height: 417px;
+		/*width:440px;*/
+		width:400px;
+		/*height: 417px;*/
+		height: 377px;
 	}
 	.cr-bgimg div {
-		width:105px;
+		/*width:105px;*/
+		width:90px;
 		height: 100%;
 	}
 	.cr-bgimg {
-	width:420px!important;
-    height: 399px;
+		/*width:420px!important;*/
+		width:360px!important;
+    /*height: 399px;*/
+    height: 337px;
 		position: absolute;
 		left: 0px;
 		top: 0px;
