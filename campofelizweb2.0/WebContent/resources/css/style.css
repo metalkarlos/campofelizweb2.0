@@ -4,7 +4,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
-html, body{
+html, body, .ui-widget {
 	font-family: 'Raleway', sans-serif;
 	font-size: 100%;
 	background: #FFf;
@@ -1012,7 +1012,7 @@ label {
 	position: relative;
 	height: 120px;
 }
-.contact-buttons > div {
+.contact-buttons > div:nth-child(1) {
 	/*float: right;*/
 	position: absolute;
 	right: 0px;
@@ -2649,4 +2649,15 @@ ul.pagination {
 /*--//blog--*/
 i.glyphicon.glyphicon-calendar {
   margin-right: 3px/*7px*/;
+}
+/*--//primefaces--*/
+.ui-corner-all {
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.ui-message-error {
+    color: red !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
 }
