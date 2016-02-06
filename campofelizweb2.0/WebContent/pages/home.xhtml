@@ -449,9 +449,9 @@
 							<span><table><tr><td><label>MENSAJE</label></td><td><p:message for="txtMensaje" display="text" /></td></tr></table></span> <span><textarea
 									name="userMsg" jsfc="h:inputTextarea" id="txtMensaje" value="#{contactenosBean.mensaje}" required="true" requiredMessage="*Obligatorio"> </textarea></span>
 						</div>
-						<p:message id="msgCaptcha" for="idcaptcha" display="text" />
 						<div class="contact-buttons">
 							<p:captcha id="idcaptcha" data-size="compact" label="Captcha" theme="white" language="es" required="true" requiredMessage="*Verifique Recaptcha" />
+							<p:message id="msgCaptcha" for="idcaptcha" display="text" />
 							<p:commandButton value="Enviar" onclick="PF('vardialogconfirm').show();" immediate="true" ></p:commandButton>
 						</div>
 					</div>

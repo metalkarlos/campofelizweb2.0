@@ -1018,6 +1018,12 @@ label {
 	right: 0px;
 	top: 0px;
 }
+.contact-buttons > div:nth-child(2) {
+	float: right;
+	position: relative;
+	top: 50px;
+	right: 130px;
+}
 /*--contact-one--*/
 .contact-one{
   padding:2em 0;
@@ -1679,7 +1685,7 @@ color: #FF8DAE;
 	  width: 38%;
 	  font-size: 1em;
 	}
-	.contact-buttons > div {
+	.contact-buttons > div:nth-child(1), .contact-buttons > div:nth-child(2) {
 		transform:scale(0.85);
 		-webkit-transform:scale(0.85);
 		transform-origin: top right;
@@ -1687,6 +1693,12 @@ color: #FF8DAE;
 	}
 	.contact-buttons {
     height: 110px;
+	}
+	.contact-buttons > div:nth-child(2) {
+		float: right;
+		position: relative;
+		top: 42px;
+		right: 110px;
 	}
 	/*--contact-one--*/
 	.contact-one{
