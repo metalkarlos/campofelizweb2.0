@@ -133,6 +133,12 @@ public class ContactenosBean implements Serializable {
 		contenido += "<tr>";	
 		contenido += "<td><strong>Email: </strong></td><td>" + correo + "</td>";
 		contenido += "</tr>";
+		contenido += "<tr>";	
+		contenido += "<td><strong>Cédula: </strong></td><td>" + cedula + "</td>";
+		contenido += "</tr>";
+		contenido += "<tr>";	
+		contenido += "<td><strong>Teléfono: </strong></td><td>" + telefono + "</td>";
+		contenido += "</tr>";
 		contenido += "<tr>";
 		contenido += "<td colspan='2'><span>&nbsp;</span></td>";
 		contenido += "</tr>";

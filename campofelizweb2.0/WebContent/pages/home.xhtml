@@ -431,17 +431,23 @@
 						<div>
 							<span><table><tr><td><label>E-MAIL</label></td><td><p:message for="txtEmail" display="text" /></td></tr></table></span> <span><input
 								name="userEmail" type="text" class="textbox" jsfc="h:inputText" id="txtEmail" value="#{contactenosBean.correo}" required="true" requiredMessage="*Obligatorio" label="Email"
-								validatorMessage="Formato de Correo Electrónico incorrecto">
+								validatorMessage="*Incorrecto">
 									<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
 								</input></span>
 						</div>
 						<div>
 							<span><table><tr><td><label>CEDULA</label></td><td><p:message for="txtCedula" display="text" /></td></tr></table></span> <span><input
-								name="userId" type="text" class="textbox" jsfc="h:inputText" id="txtCedula" value="#{contactenosBean.cedula}" required="true" requiredMessage="*Obligatorio" label="Cédula"></input></span>
+								name="userId" type="text" class="textbox" jsfc="h:inputText" id="txtCedula" value="#{contactenosBean.cedula}" required="true" requiredMessage="*Obligatorio" validatorMessage="*Incorrecto" label="Cédula" size="10" >
+									<f:validateRegex pattern="[0-9]+" />
+									<f:validateLength minimum="10" maximum="10"/>
+								</input></span>
 						</div>
 						<div>
 							<span><table><tr><td><label>TELEFONO</label></td><td><p:message for="txtTelefono" display="text" /></td></tr></table></span> <span><input
-								name="userPhone" type="text" class="textbox" jsfc="h:inputText" id="txtTelefono" value="#{contactenosBean.telefono}" required="true" requiredMessage="*Obligatorio" label="Teléfono"></input></span>
+								name="userPhone" type="text" class="textbox" jsfc="h:inputText" id="txtTelefono" value="#{contactenosBean.telefono}" required="true" requiredMessage="*Obligatorio" validatorMessage="*Incorrecto" label="Teléfono">
+									<f:validateRegex pattern="[0-9][0-9\s]+[0-9]" />
+									<f:validateLength minimum="6" />
+								</input></span>
 						</div>
 					</div>
 					<div jsfc="h:panelGroup" id="right_form" class="right_form" layout="block">
@@ -525,12 +531,12 @@
 				<p:panelGrid style="width: 100%; text-align: right;">
 					<p:row>
 						<p:column>
-							<p:commandLink id="idconfirmar" style="color: #EC8F23;"
+							<p:commandLink id="idconfirmar" styleClass="button"
 								value="Confirmar" action="#{contactenosBean.enviar()}" 
-								update="msgCaptcha,left_form,right_form"
+								update="left_form,right_form"
 								onclick="PF('vardialogconfirm').hide()"  />
 							<h:outputText value="  " />
-							<p:commandLink id="idcancelar" style="color: #EC8F23;"
+							<p:commandLink id="idcancelar" styleClass="button"
 								value="Cancelar" immediate="true"
 								onclick="PF('vardialogconfirm').hide()" />
 						</p:column>
