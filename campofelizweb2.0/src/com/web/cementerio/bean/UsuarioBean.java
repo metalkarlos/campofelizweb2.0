@@ -1,6 +1,7 @@
 package com.web.cementerio.bean;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.UUID;
 
 import javax.faces.bean.ManagedBean;
@@ -38,6 +39,7 @@ public class UsuarioBean implements Serializable{
 	private StreamedContent streamedContent;
 	private Cotoficina cotoficina;
 	private String mensaje;
+	private Date hoy;
 	
 	public UsuarioBean(){
 		FacesUtil facesUtil = new FacesUtil();  
@@ -46,6 +48,7 @@ public class UsuarioBean implements Serializable{
 		setUsuario = new Setusuario();
 		cotoficina = new Cotoficina();
 		mensaje = "";
+		hoy = new Date();
 		
 		consultarEmpresa();
 	}
@@ -300,6 +303,14 @@ public class UsuarioBean implements Serializable{
 
 	public void setMensaje(String mensaje) {
 		this.mensaje = mensaje;
+	}
+
+	public Date getHoy() {
+		return hoy;
+	}
+
+	public void setHoy(Date hoy) {
+		this.hoy = hoy;
 	}
 
 }
